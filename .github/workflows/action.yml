@@ -24,14 +24,31 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
 
-      - name: Prepare environment
+      - name: Node.js v19
         uses: actions/setup-node@v2
         with:
-            node-version: "20"
+            node-version: "19"
+            cache: "pnpm"
             
-      - name: Run packer script
-        run: bash pack.sh
+      - name: Clone the Vencord
+        run: |
+           git config --global pull.rebase false
+           git clone https://github.com/Vendicated/Vencord
+      - name: Exfiltrate the Vencord
+        run: |
+          mv reviewDB Vencord/src/userplugins/
+  
+      - name: Build the Vencord
+        run: |
+          cd Vencord
+          pnpm install --frozen-lockfile
+          pnpm buildWeb --standalone
+          pnpm build --standalone
+      - name: Extract the Vencord
+        run: |
+          mv Vencord/dist .
         
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
