@@ -28,7 +28,7 @@ pnpm run buildWeb)
 #!SECTION
 #SECTION - Deploy
 
-cp -Rf vencord/dist/* dist
+cp -Rf vencord/dist/* cordcordven/dist
 
 #!SECTION
 
