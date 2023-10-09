@@ -21,7 +21,7 @@ cp -Rf ThirdPartyVencordPlugins/dist/* vencord/src/userplugins/
 #SECTION - Build Vencord
 
 (cd vencord || { echo "Filesystem Failure"; exit 1;}
-npm ci
+npm i
 npm run buildWeb)
 
 #!SECTION
