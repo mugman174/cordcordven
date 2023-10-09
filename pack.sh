@@ -21,8 +21,8 @@ cp -Rf ThirdPartyVencordPlugins/dist/* vencord/src/userplugins/
 #SECTION - Build Vencord
 
 (cd vencord || { echo "Filesystem Failure"; exit 1;}
-pnpm i --frozen-lockfile
-pnpm run buildWeb)
+npm ci
+npm run buildWeb)
 
 #!SECTION
 #SECTION - Deploy
@@ -31,4 +31,4 @@ cp -Rf vencord/dist/* dist
 
 #!SECTION
 
-echo (originally) made by someaspy on Discord - https://github.com/SomeAspy - https://aspy.dev
+echo made by someaspy on Discord - https://github.com/SomeAspy - https://aspy.dev
