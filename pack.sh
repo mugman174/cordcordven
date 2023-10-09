@@ -8,6 +8,7 @@ cd ..
 git config --global pull.rebase false
 git clone https://github.com/vendicated/vencord
 git clone https://github.com/SomeAspy/ThirdPartyVencordPlugins --recurse-submodules
+npm i -g pnpm
 
 #!SECTION
 #SECTION - Integrate 3rd-party plugins
@@ -21,8 +22,8 @@ cp -Rf ThirdPartyVencordPlugins/dist/* vencord/src/userplugins/
 #SECTION - Build Vencord
 
 (cd vencord || { echo "Filesystem Failure"; exit 1;}
-npm i
-npm run buildWeb)
+pnpm i
+pnpm run buildWeb)
 
 #!SECTION
 #SECTION - Deploy
