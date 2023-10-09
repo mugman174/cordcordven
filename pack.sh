@@ -7,17 +7,17 @@
 cd ..
 git config --global pull.rebase false
 git clone https://github.com/vendicated/vencord
-git clone https://github.com/SomeAspy/ThirdPartyVencordPlugins --recurse-submodules
+#git clone https://github.com/SomeAspy/ThirdPartyVencordPlugins --recurse-submodules
 npm i -g pnpm
 
 #!SECTION
 #SECTION - Integrate 3rd-party plugins
 
-(cd ThirdPartyVencordPlugins || { echo "Filesystem Failure"; exit 1;}
-bash repack.sh)
-mkdir vencord/src/userplugins
-cp -Rf ThirdPartyVencordPlugins/dist/* vencord/src/userplugins/
-
+#(cd ThirdPartyVencordPlugins || { echo "Filesystem Failure"; exit 1;}
+#bash repack.sh)
+#mkdir vencord/src/userplugins
+#cp -Rf ThirdPartyVencordPlugins/dist/* vencord/src/userplugins/
+mv reviewDB vencord/src/userplugins/
 #!SECTION
 #SECTION - Build Vencord
 
