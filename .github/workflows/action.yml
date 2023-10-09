@@ -24,7 +24,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+
+      - name: Install pnpm
+        run: npm i -g pnpm
 
       - name: Node.js v19
         uses: actions/setup-node@v2
